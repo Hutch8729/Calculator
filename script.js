@@ -14,13 +14,16 @@ $('#btns').on('click', '.btn', this.id, function(){
 		//check not . || ce || c
 		if (this.id !== "." && this.id !== "=" && this.id !== "C" && this.id !== "CE"){
 			if (lastInputType === 'number'){
-				lastNumInput = currInput;
+				lastNumInput = parseInt(currInput);
 				calcArr.push(lastNumInput);
 				currInput = "";
 				$('#currInput').html(this.id);
 				lastInputType = 'operator';
 				if (lastOperatorInput !== ""){
 					answer = mod(lastNumInput, lastOperatorInput);
+				}
+				else{
+					answer = lastNumInput;
 				}
 				lastOperatorInput = this.id;
 			}
@@ -34,15 +37,40 @@ $('#btns').on('click', '.btn', this.id, function(){
 		}
 
 		else if (this.id === "=" && lastInputType !== ''){
+			lastNumInput = parseInt(currInput);
+			calcArr.push(lastNumInput);
+			calcArr.push("=");
+			currInput = "";
 			answer = mod(lastNumInput, lastOperatorInput);
+			calcArr.push(answer);
 			$('#answer').html(answer);
 			lastOperatorInput = "";
 			lastInputType = "operator";
+		}
+
+		else if (this.id === "CE"){
+			calcArr = [];
+			answer = 0;
+			lastInputType = "";
+			lastNumInput = 0;
+			lastOperatorInput = "";
+			currInput = "";
+			$('#answer').html(answer);
+			$('#currInput').html(currInput);
+
+		}
+		else if (this.id === "AC"){
+			if (lastInputType === 'operator'){
+				
+			}
 		}
 	}
 
 	//check for numbtn
 	if ($(this).hasClass('numBtn')){
+		if (lastInputType === 'operator'){
+			calcArr.push(lastOperatorInput);
+		}
 		currInput += this.id;
 		$('#currInput').html(currInput);
 		lastInputType = 'number';
@@ -73,19 +101,6 @@ function mod(val, type){
 
 	else if (type === "-"){
 		return answer - val;
-	}
-}
-
-function calculate(){
-	if (typeof lastInput)
-	for (i = 0; i < calcArr.length; i++){
-		if (i === 0){
-			answer += calcArr[i];
-			$('#answer').html(answer);
-		}
-		if (typeof calcArr[i] === 'number' && i !== 0){
-			answer = mod(calcArr[i], calcArr[i - 1]);
-		}
 	}
 }
 

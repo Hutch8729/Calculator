@@ -1,12 +1,16 @@
 .btn{
-	width: 40px;
+	width: 60px;
+	/*border-radius: 2px 2px
+	border-left: 2px solid rgb(245,245,245) !important;
+	border-bottom: 2px solid rgb(245,245,245) !important;*/
 }
 
 .modsBtn{
-	background-color: orange;
+	background-color: red;
 	margin:10px;
 }
 
 .numBtn{
+	background-color: lightblue;
 	margin:10px;
 }
