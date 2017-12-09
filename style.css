@@ -14,3 +14,12 @@
 	background-color: lightblue;
 	margin:10px;
 }
+
+#fullEq:after {
+    content: '\200b';
+}
+
+#answer{
+	font-size: 30px;
+	font-style: bold;
+}
