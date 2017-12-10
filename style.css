@@ -1,18 +1,24 @@
 .btn{
-	width: 60px;
+	/*width: 60px;*/
+	font-weight: bold;
+	font-size: 25px;
+	margin:5px;
 	/*border-radius: 2px 2px
 	border-left: 2px solid rgb(245,245,245) !important;
 	border-bottom: 2px solid rgb(245,245,245) !important;*/
 }
 
 .modsBtn{
-	background-color: red;
-	margin:10px;
+	background-color: #FF6600;
 }
 
 .numBtn{
-	background-color: lightblue;
-	margin:10px;
+	background-color: darkgrey;
+}
+
+#fullEq{
+	/*color: white;*/
+	text-align: right;
 }
 
 #fullEq:after {
@@ -22,4 +28,68 @@
 #answer{
 	font-size: 30px;
 	font-style: bold;
+	/*color: white;*/
+	text-align: right;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+#answerBar{
+	background-color: lightgrey;
+	border: 1px solid black;
+	margin: 20px;
+}
+
+.container{
+	display: inline-grid;
+	grid-template-columns: 80px 80px 80px 80px;
+	grid-template-rows: 80px 80px 80px 80px 80px;
+}
+
+.item-16{
+	grid-column: 4 / span 1;
+  	grid-row: 4 / span 2;
+}
+
+.item-10{
+	grid-column: 1 / span 2;
+  	grid-row: 5 / span 1;
+}
+
+.item-17{
+	grid-column: 1 / span 1;
+  	grid-row: 1 / span 1;
+}
+
+.item-18{
+	grid-column: 2 / span 1;
+  	grid-row: 1 / span 1;
+}
+
+.item-12{
+	grid-column: 3 / span 1;
+  	grid-row: 1 / span 1;
+}
+
+.item-13{
+	grid-column: 4 / span 1;
+  	grid-row: 1 / span 1;
+}
+
+.item-15{
+	grid-column: 4 / span 1;
+  	grid-row: 2 / span 1;
+}
+
+.item-14{
+	grid-column: 4 / span 1;
+  	grid-row: 3 / span 1;
+}
+
+#calculatorFull{
+	border: 3px solid black;
+	width: 360px;
+	/*height: 480px;*/
+	background-color: #0C2C56;
+	border-radius: 10px;
 }

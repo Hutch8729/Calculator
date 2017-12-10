@@ -12,7 +12,7 @@ $('#btns').on('click', '.btn', this.id, function(){
 	//check for button is mod
 	if ($(this).hasClass('modsBtn')){
 		//check not . || ce || c
-		if (this.id !== "=" && this.id !== "C" && this.id !== "CE"){
+		if (this.id !== "=" && this.id !== "AC" && this.id !== "CE"){
 			if (lastInputType === 'number'){
 				if (currInput.indexOf(".") === -1){
 					lastNumInput = parseInt(currInput);
@@ -22,7 +22,7 @@ $('#btns').on('click', '.btn', this.id, function(){
 				}
 				calcArr.push(lastNumInput);
 				currInput = "";
-				$('#answer').html(this.id);
+				$('#answer').text(this.id);
 				lastInputType = 'operator';
 				if (lastOperatorInput !== ""){
 					answer = mod(lastNumInput, lastOperatorInput);
@@ -36,7 +36,7 @@ $('#btns').on('click', '.btn', this.id, function(){
 			else if (lastInputType === 'operator'){
 				console.log("i'm here");
 				lastOperatorInput = this.id;
-				$('#answer').html(currInput);
+				$('#answer').text(currInput);
 				lastInputType = 'operator';
 			}
 		}
@@ -53,7 +53,7 @@ $('#btns').on('click', '.btn', this.id, function(){
 			currInput = "";
 			answer = mod(lastNumInput, lastOperatorInput);
 			calcArr.push(answer);
-			$('#answer').html(answer);
+			$('#answer').text(answer);
 			lastOperatorInput = "";
 			lastInputType = "operator";
 		}
@@ -65,13 +65,13 @@ $('#btns').on('click', '.btn', this.id, function(){
 			lastNumInput = 0;
 			lastOperatorInput = "";
 			currInput = "";
-			$('#answer').html(answer);
-			// $('#currInput').html(currInput);
+			$('#answer').text(answer);
+			// $('#currInput').text(currInput);
 
 		}
 		else if (this.id === "AC"){
 			if (lastInputType === 'number'){
-				$('#answer').html("0");
+				$('#answer').text("0");
 				currInput = "";
 			}
 		}
@@ -84,7 +84,7 @@ $('#btns').on('click', '.btn', this.id, function(){
 				calcArr.push(lastOperatorInput);
 			}
 			currInput += this.id;
-			$('#answer').html(currInput);
+			$('#answer').text(currInput);
 			lastInputType = 'number';
 		}
 
@@ -94,14 +94,14 @@ $('#btns').on('click', '.btn', this.id, function(){
 					currInput += "0";
 				}
 				currInput += ".";
-				$('#answer').html(currInput);
+				$('#answer').text(currInput);
 				lastInputType = 'number';
 			}
 		}
 	}
 
 	//update fullEQ on every button press
-	$("#fullEq").html(calcArr.join(" "));
+	$("#fullEq").text(calcArr.join(" "));
 });
 
 
@@ -113,7 +113,7 @@ function mod(val, type){
 
 	else if (type === "/"){
 		if (val === 0){
-			$('#answer').html("undefined");
+			$('#answer').text("undefined");
 			return;
 		}
 		return answer / val;
