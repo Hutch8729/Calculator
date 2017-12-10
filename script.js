@@ -6,9 +6,6 @@ var lastOperatorInput = "";
 var currInput = "";
 
 $('#btns').on('click', '.btn', this.id, function(){
-	console.log(this.id);
-	console.log("current answer " + answer);
-
 	//check for button is mod
 	if ($(this).hasClass('modsBtn')){
 		//check not . || ce || c
@@ -34,10 +31,8 @@ $('#btns').on('click', '.btn', this.id, function(){
 			}
 
 			else if (lastInputType === 'operator'){
-				console.log("i'm here");
 				lastOperatorInput = this.id;
-				$('#answer').text(currInput);
-				lastInputType = 'operator';
+				$('#answer').text(lastOperatorInput);
 			}
 		}
 
@@ -61,12 +56,11 @@ $('#btns').on('click', '.btn', this.id, function(){
 		else if (this.id === "CE"){
 			calcArr = [];
 			answer = 0;
-			lastInputType = "";
+			lastInputType = "operator";
 			lastNumInput = 0;
 			lastOperatorInput = "";
 			currInput = "";
 			$('#answer').text(answer);
-			// $('#currInput').text(currInput);
 
 		}
 		else if (this.id === "AC"){
@@ -106,7 +100,6 @@ $('#btns').on('click', '.btn', this.id, function(){
 
 
 function mod(val, type){
-	console.log(answer + " " + type + " " + val);
 	if (type === "*"){
 		return answer * val;
 	}
